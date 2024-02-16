@@ -1,0 +1,14 @@
+
+.all-quotes-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .quotes-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
