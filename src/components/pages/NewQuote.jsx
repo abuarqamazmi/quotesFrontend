@@ -13,7 +13,7 @@ function NewQuote() {
     let author = usernameInputRef.current.value;
     let text = quoteInputRef.current.value;
     try {
-      let res = await axios.post('http://localhost:8080/addquotes', { author, text });
+      let res = await axios.post('https://quotesback.onrender.com/addquotes', { author, text });
       navigate('/allquotes');
     } catch (e) {
       console.log('Can not create a quote...');

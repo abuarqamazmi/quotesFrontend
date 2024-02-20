@@ -12,7 +12,7 @@ function ShowQuotes() {
   useEffect(() => {
     async function fetchQuote() {
       try {
-        const res = await axios.get(`http://localhost:8080/quotes/${params.id}`);
+        const res = await axios.get(`https://quotesback.onrender.com/quotes/${params.id}`);
         const { author, text } = res.data;
         setQuote({ author, text });
         setEditedQuote({ author, text });
@@ -34,7 +34,7 @@ function ShowQuotes() {
 
   const handleSaveEdit = async () => {
     try {
-      await axios.put(`http://localhost:8080/quotes/${params.id}`, editedQuote);
+      await axios.put(`https://quotesback.onrender.com/quotes/${params.id}`, editedQuote);
       setIsEditing(false);
     } catch (error) {
       console.error('Error editing quote:', error);
@@ -48,7 +48,7 @@ function ShowQuotes() {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:8080/quotes/${params.id}`);
+      await axios.delete(`https://quotesback.onrender.com/quotes/${params.id}`);
       navigate('/allquotes');
     } catch (error) {
       console.error('Error deleting quote:', error);
