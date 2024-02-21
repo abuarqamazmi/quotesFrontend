@@ -37,9 +37,11 @@ function ShowQuotes() {
     try {
       await axios.put(`https://quotesback.onrender.com/quotes/${params.id}`, editedQuote);
       setIsEditing(false);
+      navigate('/allquotes');
     } catch (error) {
       console.error('Error updating quote:', error);
       res.status(500).json({ error: 'Internal Server Error' })
+      navigate('/allquotes');
     }
   };
 
