@@ -32,7 +32,8 @@ function ShowQuotes() {
     setEditedQuote({ author: quote.author, text: quote.text });
   };
 
-  const handleSaveEdit = async () => {
+  const handleSaveEdit = async (e) => {
+    e.preventDefault();
     try {
       await axios.put(`https://quotesback.onrender.com/quotes/${params.id}`, editedQuote);
       setIsEditing(false);
@@ -59,7 +60,7 @@ function ShowQuotes() {
   return (
     <div>
       {isEditing ? (
-         <form className="edit-form">
+         <form className="edit-form" onSubmit={handleSaveEdit}>
          <label>
            Author:
            <input type="text" name="author" value={editedQuote.author} onChange={handleChange} />
@@ -70,7 +71,7 @@ function ShowQuotes() {
            <textarea name="text" value={editedQuote.text} onChange={handleChange} />
          </label>
          <br />
-         <button className="save-button" onClick={handleSaveEdit}>Save</button>
+         <button className="save-button" type='submit'>Save</button>
          <button className="cancel-button" onClick={handleCancelEdit}>Cancel</button>
        </form>
       ) : (
